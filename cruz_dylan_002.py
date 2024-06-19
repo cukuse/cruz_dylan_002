@@ -63,15 +63,11 @@ def menu():
         elif op==6:
             total=0
             the_strongest=0
-            for equip in equipos:
-                total=total+equip[2]
-            promedio=total/len(equipos)
-            print(f"Puntaje promedio por equipo : {promedio}")
-            for equip in equipos:
-                if the_strongest<equip[2]:
-                    the_strongest=equip[2]
-            print(f"Puntaje mas alto : {the_strongest}")
-            print(f"equipo mas alto : {equip[1]}")
+            x=promedio(equipos)
+            print(f"Puntaje promedio por equipo : {x}")
+            s=strongest(equipos)
+            print(f"Puntaje mas alto : {s}")
+            
 
         elif op==0:
             print("saliendo ....")
@@ -79,7 +75,18 @@ def menu():
         
         else:
             print("ingrese una opcion valida....")
-            
+def promedio(equipos):
+    total=0
+    for equip in equipos:
+        total=total+equip[2]
+    promedio=total/len(equipos)
+    return promedio
+def strongest(equipos):
+    for equip in equipos:
+        if the_strongest<equip[2]:
+            the_strongest=equip[2]
+    return the_strongest
+    
 def agregar_equipo(equipos):
     ID=int(input("Ingrese ID del equipo : "))
     nombre=input("Ingrese nombre del equipo : ")
